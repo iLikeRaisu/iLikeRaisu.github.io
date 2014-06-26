@@ -275,3 +275,18 @@ span#text
 	position: absolute;
 	overflow: hidden;
 }
+table 
+{
+	border-color: #FFFFFF;
+	border-width: 0 0 1px 1px;
+	border-style:solid;
+}
+td
+{
+	border-color: #FFFFFF;
+	border-width: 1px 1px 0 0;
+	border-style: solid;
+	margin: 0;
+	padding: 0.2em;
+	background-color: #fedcba;
+}
