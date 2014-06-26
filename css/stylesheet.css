@@ -283,3 +283,6 @@ table {
 table, th, td {
 	border: 1px solid #FFFFFF;
 }
+td {
+	text-align: center;
+}
