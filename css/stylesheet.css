@@ -278,7 +278,7 @@ span#text
 table {
 	font-size:130%;
 	border-collapse: collapse;
-	height: 110%;
+	height: 100%;
 	width: 100%;
 }
 table, th, td {
