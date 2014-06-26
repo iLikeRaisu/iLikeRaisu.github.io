@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LoLKeep</title>
+	<link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
+</head>
+<body>
+	<header>
+		<!--LoLKeep-->
+	</header>
+	<div id="leftbar">
+		<div id="search">
+			<input type="text" id="searchbox" maxlength="12" />
+		</div>
+		<div id="container">
+			<span class="left"></span>
+			<span class="top"></span>
+			<span class="right"></span>
+			<span class="bottom"></span>
+			<div id="scroll">
+			</div>
+		</div>
+	</div>
+	<main>
+		<div id="basicinfo">
+			<div id="titlecontainer">
+				<div id ="avatar">
+					<img class="avatar" src="champions/Heimerdinger.png">
+				</div>
+				<div class="nametitle">
+					<h2>Heimerdinger</h2>
+					<h3>the Revered Inventor</h3>
+				</div>
+			</div>
+			<div id="role">
+				<span id="text">Role(s): Swagmaster 9000</span>
+			</div>
+			<div id="statistics"></div>
+		</div>
+	</main>
+	<footer></footer>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript">
+	//Load JSONs
+	var champions;
+	var championsList = [];
+	var keyNameList = [];
+	var searchList = [];
+	var selected = "";
+	var searchbox = $("#searchbox");
+	var laststr = "";
+	
+	function sortByKey(array, key) {
+		return array.sort(function(a, b) {
+			var x = a[key]; var y = b[key];
+			return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+		});
+	}
+	
+	//Champion list
+	function PopulateList() {
+		searchList = [];
+		var delimiter = searchbox.val().toLowerCase();
+		laststr = delimiter;
+		if (delimiter != "")
+		{
+			var lim = championsList.length;
+			for (var i = 0; i < lim; i++)
+			{
+				if(championsList[i].name.toLowerCase().indexOf(delimiter) == 0)
+					searchList.push(championsList[i].key);
+			}
+		}
+		else
+		{
+			var lim = championsList.length;
+			for (var i = 0; i < lim; i++)
+				searchList.push(championsList[i].key);
+		}
+			
+		lim = searchList.length;
+		var inner = "";
+		for (var i = 0; i < lim; i++)
+		{
+			var key = searchList[i];
+			inner += '<div class="box" id="' + key + '"><div class="imgsection"><img class="icon" src="champions/' + keyNameList[key] + '.png"></div><div class="txtsection"><h1>' + keyNameList[key] + '</h1></div></div>';
+		}
+		$("div#scroll").html(inner);
+		//Highlight selected
+		SetState1($("div.box"));
+		//$("div.box").css("background-color", "#FF0000");
+		if (selected != "")
+			SetState3($(("div#" + selected)));
+			//$(("div#" + selected)).css("background-color", "#FFFF00");
+		//
+		$("div.box").click(function() {
+			Select($(this).attr("id"));
+		});
+		$("div.box").hover(function() {
+			if ($(this).attr("id") != selected)
+				SetState2($(this));
+				//$(this).css("background-color", "#FF5500");
+		}, function() {
+			if ($(this).attr("id") != selected)
+				SetState1($(this));
+				//$(this).css("background-color", "#FF0000");
+		});
+	}
+	
+	function SetState1(box)
+	{
+		box.css("background", "-webkit-linear-gradient(rgb(46,109,188), rgb(19,46,79))");
+		box.css("background", "-o-linear-gradient(rgb(46,109,188), rgb(19,46,79))");
+		box.css("background", "-moz-linear-gradient(rgb(46,109,188), rgb(19,46,79))");
+		box.css("background", "linear-gradient(rgb(46,109,188), rgb(19,46,79))");
+	}
+	
+	function SetState2(box)
+	{
+		box.css("background", "-webkit-linear-gradient(rgb(46,106,183), rgb(14,54,105), rgb(32,86,157))");
+		box.css("background", "-o-linear-gradient(rgb(46,106,183), rgb(14,54,105), rgb(32,86,157))");
+		box.css("background", "-moz-linear-gradient(rgb(46,106,183), rgb(14,54,105), rgb(32,86,157))");
+		box.css("background", "linear-gradient(rgb(46,106,183), rgb(14,54,105), rgb(32,86,157))");
+	}
+	
+	function SetState3(box)
+	{
+		box.css("background", "-webkit-linear-gradient(rgb(23,65,117), rgb(12,33,59))");
+		box.css("background", "-o-linear-gradient(rgb(23,65,117), rgb(12,33,59))");
+		box.css("background", "-moz-linear-gradient(rgb(23,65,117), rgb(12,33,59))");
+		box.css("background", "linear-gradient(rgb(23,65,117), rgb(12,33,59))");
+	}
+	
+	//Selector
+	function Select(id) {
+		if (id != "")
+		{
+			SetState1($("div.box"))
+			//$("div.box").css("background-color", "#FF0000");
+			document.title = "LoLKeep - " + keyNameList[id];
+			searchbox.val(keyNameList[id]);
+			searchbox.focus();
+			laststr = keyNameList[id].toLowerCase();
+			selected = id;
+			var temp = $(("div#" + id));
+			temp.removeAttr("id");
+			location.hash = id;
+			temp.attr("id", id);
+			SetState3(temp);
+			//temp.css("background-color", "#FFFF00");
+		}
+	}
+	
+	///////////////////////HIGHLIGHT TAB MOVES BY ARROW KEYS (LOW PRIORITY)
+	
+	//onLoad
+	$(document).ready(function() {
+		$.getJSON("json/champions.json", function(data) {
+			champions = data.data;
+			for (var key in champions)
+				championsList.push({ "key": key, "name": champions[key].name, "title": champions[key].title });
+			championsList = sortByKey(championsList, "name");
+			var lim = championsList.length;
+			for (var i = 0; i < lim; i++)
+				keyNameList[championsList[i].key] = championsList[i].name;
+			if (window.location.hash)
+			{
+				var hash = window.location.hash;
+				hash = hash.charAt(1).toUpperCase() + hash.slice(2);
+				if (keyNameList[hash])
+					Select(hash);
+			}
+			PopulateList();
+		});
+		
+		//SlimScroll
+		$("div#scroll").slimScroll({
+			railColor: '#ffffff',
+			height: '100%',
+			railVisible: true,
+			alwaysVisible: true
+		});
+	
+		//Search Box
+		searchbox.keyup(function(event) {
+			if (event.which == 13) //Enter
+				Select(searchList[0]);
+			else if (event.which == 27) //Escape
+				searchbox.val("");
+			if (laststr != searchbox.val().toLowerCase())
+				PopulateList();
+		});
+		
+		//Hash Change
+		$(window).on("hashchange", function() {
+			if (window.location.hash)
+			{
+				var hash = window.location.hash;
+				hash = hash.charAt(1).toUpperCase() + hash.slice(2);
+				if (keyNameList[hash])
+					Select(hash);
+			}
+		});
+	});
+	</script>
+</body>
+</html>

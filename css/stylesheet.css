@@ -1,0 +1,277 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+main, #leftbar, #search
+{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+body
+{
+	background-color: #143967;
+	font-family: Helvetica, Arial, Sans-Serif;
+	font-size: 62.5%;
+	height: 100%;
+	width: 100%;
+}
+
+header
+{
+	background: -webkit-linear-gradient(rgb(28,67,116) 50%, rgb(13,41,76)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(28,67,116) 50%, rgb(13,41,76)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(28,67,116) 50%, rgb(13,41,76)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(28,67,116) 50%, rgb(13,41,76)); /* Standard syntax */
+	background-color: #FFFFFF;
+	top: 0;
+	height: 4em;
+	width: 100%;
+	position: absolute;
+}
+
+footer
+{
+	background: -webkit-linear-gradient(rgb(43,94,157), rgb(28,68,117) 50%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(43,94,157) rgb(28,68,117) 50%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(43,94,157), rgb(28,68,117) 50%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(43,94,157), rgb(28,68,117) 50%); /* Standard syntax */
+	background-color: #FFFFFF;
+	bottom: 0;
+	height: 4em;
+	width: 100%;
+	position: absolute;
+}
+
+main
+{
+	background-color: #818181;
+	top: 4em;
+	bottom: 0;
+	left: 17em;
+	right: 0;
+	margin-bottom: 4em;
+	position: absolute;
+	overflow: hidden;
+	cursor: default;
+}
+
+#leftbar
+{
+	background-color: #041424;
+	top: 4em;
+	bottom: 0;
+	width: 17em;
+	margin-bottom: 4em;
+	position: absolute;
+}
+
+#search
+{
+	background-color: #000000;
+	height: 4em;
+}
+
+#searchbox
+{
+	margin-top: 0.85em;
+	margin-left: 0.75em;
+	height: 1em;
+	width: 11em;
+	position: relative;
+}
+
+#container
+{
+	background-color: #000000;
+	top: 4em;
+	bottom: 0;
+	width: 15em;
+	margin: 1em;
+	position: absolute;
+}
+
+.left
+{
+	background-color: #FF00FF;
+	top: 0;
+	bottom: 0;
+	left: -1em;
+	width: 1em;
+	position: absolute;
+}
+
+
+.top
+{
+	background-color: #FF00FF;
+	top: -1em;
+	left: -1em;
+	right: -1em;
+	height: 1em;
+	position: absolute;
+}
+
+.right
+{
+	background-color: #FF00FF;
+	top: 0;
+	bottom: 0;
+	right: -1em;
+	width: 1em;
+	position: absolute;
+}
+
+.bottom
+{
+	background-color: #FF00FF;
+	bottom: -1em;
+	left: -1em;
+	right: -1em;
+	height: 1em;
+	position: absolute;
+}
+
+h1
+{
+	display: block;
+	font-size: 1.5em;
+	font-weight: normal;
+	text-align: left;
+	margin-left: 0.1em;
+}
+
+.box
+{
+	background: -webkit-linear-gradient(rgb(46,109,188), rgb(19,46,79)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(46,109,188), rgb(19,46,79)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(46,109,188), rgb(19,46,79)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(46,109,188), rgb(19,46,79)); /* Standard syntax */
+	border: 0.1em solid #27436A;
+	border-radius: 0.3em;
+	height: 3em;
+	width: 15em;
+	margin-bottom: 0.2em;
+	line-height: 3em;
+	cursor: pointer;
+	color: rgb(233,233,233);
+}
+
+.icon
+{
+	height: 2em;
+	width: 2em;
+	margin-top: 0.5em;
+	margin-left: 0.5em;
+	pointer-events: none;
+}
+
+.imgsection
+{
+	display: inline;
+	float: left;
+	height: 3em;
+	width: 3em;
+	line-height: 3em;
+}
+
+.txtsection
+{
+	display: inline;
+	float: left;
+	height: 3em;
+	width: 12em;
+	line-height: 3em;
+}
+
+#basicinfo
+{
+	background-color: #0FFFFF;
+	top: 0;
+	left: 0;
+	height: 15em;
+	width: 80em;
+	margin: 2em;
+	position: absolute;
+	overflow: hidden;
+}
+
+#titlecontainer
+{
+	background-color: #FFFFFF;
+	top: 0;
+	left: 0;
+	height: 12em;
+	width: 40em;
+	position: absolute;
+	overflow: hidden;
+}
+
+div#avatar
+{
+	display: inline;
+	float: left;
+	height: 12em;
+	width: 12em;
+	pointer-events: none;
+}
+
+.avatar
+{
+	height: 12em;
+	width: 12em;
+}
+
+.nametitle
+{
+	display: inline;
+	float: left;
+	margin-left: 1em;
+	height: 12em;
+}
+
+#role
+{
+	bottom: 0;
+	background-color: #abcdef;
+	height: 3em;
+	width: 40em;
+	line-height: 3em;
+	position: absolute;
+}
+
+h2
+{
+	color: #000BBF;	
+	font-size: 4em;	
+}
+
+h3
+{
+	color: #9797FC;	
+	font-size: 2em;	
+}
+
+span#text
+{
+	margin-left: 0.5em;
+	font-size: 1.5em;
+}
+
+#statistics
+{
+	display: inline;
+	top: 0;
+	left: 40em;
+	background-color: #fedcba;
+	height: 15em;
+	width: 40em;
+	position: absolute;
+	overflow: hidden;
+}
