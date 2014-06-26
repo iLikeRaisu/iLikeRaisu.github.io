@@ -176,7 +176,7 @@
 			inner += '</td><td>Armor</td><td>' + champ.stats.armor + ' (+' + champ.stats.armorperlevel + ')</td></tr><tr><td>';
 			if(champ.partype=="Mana")
 				inner += 'Mana Regen.</td><td>' + champ.stats.mpregen + ' (+' + champ.stats.mpregenperlevel + ')</td>';
-			if(champ.partype=="Energy")
+			else if(champ.partype=="Energy")
 				inner += 'Energy Regen.</td><td>' + champ.stats.mpregen + ' (+' + champ.stats.mpregenperlevel + ')</td>';
 			else
 				inner += '</td><td></td>';
