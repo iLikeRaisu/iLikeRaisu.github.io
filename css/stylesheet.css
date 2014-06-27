@@ -287,4 +287,6 @@ table, th, td {
 td {
 	text-align: center;
 	border-bottom: 1px solid #FFFFFF; 
+	padding-left: 1em;
+	padding-right: 1em;
 }
