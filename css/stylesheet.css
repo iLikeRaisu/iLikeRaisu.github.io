@@ -288,7 +288,7 @@ td {
 	text-align: center;
 }
 
-#border {
+span#border {
 	position: relative;
 	width: 80%;
 	border-bottom: 1px solid #FFFFFF;
