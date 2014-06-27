@@ -138,7 +138,7 @@
 			 	else
 			 		inner += ", " + champ.tags[i];
 			}
-			inner += '</span></div><div id="statistics"><table><tr><td>Health</td><td>' + champ.stats.hp + ' (+' + champ.stats.hpperlevel + ')</td><td>Attack Damage</td><td>' + champ.stats.attackdamage + ' (+' + Math.round(champ.stats.attackdamageperlevel*100)/100 + ')</td></tr><tr><td>Health Regen.</td><td>' + champ.stats.hpregen + ' (+' + champ.stats.hpregenperlevel + ')</td><td>Attack Speed</td><td>';
+			inner += '</span></div><div id="statistics"><table><tr><td>Health<span id="border"></span></td><td>' + champ.stats.hp + ' (+' + champ.stats.hpperlevel + ')<span id="border"></span></td><td>Attack Damage<span id="border"></span></td><td>' + champ.stats.attackdamage + ' (+' + Math.round(champ.stats.attackdamageperlevel*100)/100 + ')<span id="border"></span></td></tr><tr><td>Health Regen.</td><td>' + champ.stats.hpregen + ' (+' + champ.stats.hpregenperlevel + ')</td><td>Attack Speed</td><td>';
 			inner += (Math.round((1/(1.6*(1+champ.stats.attackspeedoffset)))*1000)/1000) + ' (+' + champ.stats.attackspeedperlevel + '%)</td></tr><tr><td>';
 			if(champ.partype=="Mana")
 				inner += 'Mana';
